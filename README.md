@@ -6,8 +6,3 @@
 
 - react-native
 
-- vue
-
-- weex
-
-- ...
