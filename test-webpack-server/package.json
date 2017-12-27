@@ -4,7 +4,12 @@
   "description": "this is test use webpack.",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "start": "webpack",
+    "server": "webpack-dev-server --open"
+  },
   "dependencies": {
-    "webpack": "^3.10.0"
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.9.7"
   }
 }

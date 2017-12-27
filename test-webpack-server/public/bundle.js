@@ -67,12 +67,19 @@
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const hello = __webpack_require__(1)
-document.querySelector("#root").appendChild(hello());
+module.exports = __webpack_require__(1);
 
 
 /***/ }),
 /* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const hello = __webpack_require__(2)
+document.querySelector("#root").appendChild(hello());
+
+
+/***/ }),
+/* 2 */
 /***/ (function(module, exports) {
 
 module.exports = function() {
