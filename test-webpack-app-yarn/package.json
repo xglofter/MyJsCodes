@@ -1,0 +1,11 @@
+{
+  "name": "test-webpack-app",
+  "version": "1.0.0",
+  "description": "test webpack for tutorial, use yarn.",
+  "main": "index.js",
+  "author": "Richard",
+  "license": "MIT",
+  "dependencies": {
+    "webpack": "^3.10.0"
+  }
+}
