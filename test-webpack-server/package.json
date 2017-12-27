@@ -1,0 +1,10 @@
+{
+  "name": "test-webpack-server",
+  "version": "1.0.0",
+  "description": "this is test use webpack.",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "webpack": "^3.10.0"
+  }
+}
