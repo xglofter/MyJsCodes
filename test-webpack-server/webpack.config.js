@@ -8,6 +8,7 @@ module.exports = {
     path: path.resolve(__dirname, "public"), // 打包后的文件存放的地方
     filename: "bundle.js" // 打包后输出文件的文件名
   },
+  devtool: 'eval-source-map',
   module: {
     rules: [
       {
@@ -16,6 +17,13 @@ module.exports = {
           { loader: "style-loader" }, // style-loader 写前面，否则报错 -_-!!
           { loader: "css-loader" }
         ]
+      },
+      {
+        test: /(\.jsx|\.js)$/,
+        use: {
+          loader: "babel-loader"
+        },
+        exclude: /node_modules/
       }
     ]
     // test: 匹配文件拓展名（必须）

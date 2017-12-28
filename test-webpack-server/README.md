@@ -106,4 +106,70 @@ module: {
 
 + ***添加对 React，JSX 支持：***
 
+```
+# 安装 babel 依赖
+$ yarn add babel-core babel-loader babel-preset-env babel-preset-react
+
+# webpack.config.js 添加 module
+{
+  test: /(\.jsx|\.js)$/,
+  use: {
+    loader: "babel-loader",
+    options: {
+      presets: [ "env", "react"]
+    }
+  },
+  exclude: /node_modules/
+}
+
+# 安装 react, react-dom
+$ yarn add react react-dom
+
+# 加入 JSX 的 Happy.js
+import React, {Component} from 'react';
+
+class Happy extends Component {
+  render() {
+    return (
+      <div className='Happy'>
+        <h2> I am happy! </h2>
+      </div>
+    );
+  }
+}
+
+export default Happy;
+
+# 修改 app.js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Happy from './Happy';
+import './style.css';
+const hello = require('./hello.js');
+
+ReactDOM.render(
+  <Happy />,
+  document.getElementById('root')
+);
+
+document.querySelector("#root").appendChild(hello());
+```
+
+重新编译后，就可以看到我们添加的 Happy 了。
+
++ ***对 Babel 的配置***：
+
+可以为 babel 新建一个 ‘.babelrc’ 来单独配置 babel
+
+```
+# .babelrc:
+{
+  "presets": [ "env", "react"]
+}
+
+# webpack.config.js 去除 babel-loader 下的 options
+```
+
+### 使用插件
+
 TODO
