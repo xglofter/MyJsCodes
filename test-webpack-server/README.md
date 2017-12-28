@@ -1,3 +1,6 @@
+> 参考
+> https://doc.webpack-china.org/concepts/
+>
 
 ### 创建工程
 
@@ -5,11 +8,32 @@
 $ yarn init
 $ yarn add webpack
 
-添加工程文件：
-public/index.html
-src/app.js
-src/hello.js
+# **添加工程文件：**
+# public/index.html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Webpack Sample Project</title>
+  </head>
+  <body>
+    <div id='root'>
+    </div>
+    <script src="bundle.js"></script>
+  </body>
+</html>
 
+# src/app.js:
+document.querySelector("#root").appendChild(hello());
+
+# src/hello.js
+module.exports = function() {
+  var hello = document.createElement('div');
+  hello.textContent = "Hello World!";
+  return hello;
+}
+
+# webpack
 $ yarn run webpack src/app.js public/bundle.js
 $ open public/index.html
 ```
@@ -172,4 +196,32 @@ document.querySelector("#root").appendChild(hello());
 
 ### 使用插件
 
-TODO
+插件的范围包括，从打包优化和压缩，一直到重新定义环境中的变量。可以用来处理各种各样的任务。
+
+使用 **html-webpack-plugin**, 它会自动帮你生成一个 html 文件，并且引用相关的 assets 文件(如 css, js)。
+
+```
+# 安装库
+$ yarn add html-webpack-plugin
+
+# 修改 webpack.config.js
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
+...
+  output: {
+    path: path.resolve(__dirname, "build"), // 打包后的文件存放的地方
+    filename: "bundle.js" // 打包后输出文件的文件名
+  },
+...
+  devServer: {
+    contentBase: "./build",  // 本地服务器所加载的页面所在的目录
+...
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, "src/index.tmpl.html")
+    })
+  ]
+};
+```
+
+再编译'''$ yarn start'''。可以看到目录下生成了“build/”。
