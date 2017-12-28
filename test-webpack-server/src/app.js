@@ -1,2 +1,4 @@
-const hello = require('./hello.js')
+import("./style.css");
+const hello = require('./hello.js');
+
 document.querySelector("#root").appendChild(hello());

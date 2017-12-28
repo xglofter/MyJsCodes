@@ -73,4 +73,37 @@ devServer: {
 
 接下来可以执行 ``` $ yarn server ``` 即可打开并监听了。
 
-###
+### 使用 Loaders
+
+想要 webpack 能分析编译 css 等其他文件，需要使用各种 loader 支持。（对 json，webpack 已经内置了处理器。）
+
++ ***添加对 css 支持：***
+
+```
+    # 安装依赖
+    $ yarn add css-loader style-loader
+```
+
+安装完 loader 需要 webpack.config.js 中添加“module”配置。
+
+```
+module: {
+  rules: [
+    {
+      test: /\.css$/,
+      use: [
+        { loader: "style-loader" }, // style-loader 写前面，否则报错 -_-!!
+        { loader: "css-loader" }
+      ]
+    }
+  ]
+  // test: 匹配文件拓展名（必须）
+  // use: 使用的 loader 的名称（必须）
+},
+```
+
+重新编译，即可支持了 css 样式。
+
++ ***添加对 React，JSX 支持：***
+
+TODO
