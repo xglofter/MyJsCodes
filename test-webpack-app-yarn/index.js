@@ -1,1 +1,1 @@
-document.write("Hello world webpack!")
+document.write("Hello world, Webpack!")

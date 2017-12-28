@@ -14,15 +14,11 @@ $ yarn init
 ```
 $ yarn add webpack
 
-# 新建一个 webpack 配置
+# 新建一个 webpack 配置文件
 $ touch webpack.config.js
 
 # 内容：
-var webpack = require('webpack')
-//import webpack from 'webpack'
-
 module.exports = {
-  devtool: 'eval',
   entry: [
     './index.js'
   ],
@@ -31,17 +27,16 @@ module.exports = {
     filename: 'bundle.js'
   }
 }
-
 ```
-### 创建工程内容
+
+### 添加工程内容
 
 ```
 # index.js
 $ touch index.js
 
 # 内容：
-document.write("Hello world webpack!")
-
+document.write("Hello world, Webpack!")
 ```
 
 ```
@@ -52,7 +47,7 @@ $ touch index.html
 <html>
   <head>
     <meta charset="utf-8">
-    <title>React.js using NPM, Babel6 and Webpack</title>
+    <title>Hello, Webpack</title>
   </head>
   <body>
     <div id="app" />
@@ -72,4 +67,4 @@ $ open index.html -a Google\ Chrome
 
 如果过程中发生错误，yarn会在工程根目录下自动生成yarn-error.log文件。
 
-通过yarn安装包，package.json 会更新 "dependencies"。
+[关于 yarn](https://yarn.bootcss.com/docs/getting-started.html)
